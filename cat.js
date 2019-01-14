@@ -1,10 +1,13 @@
+
 // grab the things we need
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // create a schema
 var catSchema = new Schema({
-  name: String
+  name: String,
+  breed: String,
+  age: Number
 });
 
 //attach schema to model

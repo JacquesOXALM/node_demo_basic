@@ -25,16 +25,18 @@ module.exports = function(app) {
 
     //grab value from the submitted request object
     var catName = req.body.catName
-
+    var catAge = req.body.catAge
+    var catBreed = req.body.catBreed
+console.log(catName)
+console.log(catAge)
     //create and save our cat, just like creating an object
-    var newCat = new Cat({ name: catName });
+    var newCat = new Cat({ name: catName, age: catAge, breed: catBreed});
     newCat.save(function (err) {
 
       console.log("saved: " + newCat.name)
 
       //finding cats again and rendering page
       Cat.find({}, function(err, cats) {
-        console.log(cats);
         res.render('catList.ejs',{cats:cats})
       });
 
